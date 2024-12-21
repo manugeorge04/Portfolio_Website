@@ -94,8 +94,8 @@ export default function Chat() {
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
       <Navbar />
-      <div className="container mt-24 mx-auto  rounded-[6px] flex flex-col h-[calc(100vh-235px)] mb-4">
-        <div className="flex flex-row items-center px-4 py-1 max-h-[100px] rounded-[8px] ">
+      <div className="container mt-24 mx-auto  rounded-[6px] flex flex-col h-[calc(100dvh-235px)] mb-4">
+        <div className="flex flex-row items-center px-4 py-1 max-h-[100px] rounded-[8px] sm:border-[#33353F] sm:border rounded-md py-8 px-16 ">
           <div className="bg-green-300 rounded-full">
             <Image
               src="/images/memoji.png"
@@ -119,11 +119,11 @@ export default function Chat() {
               key={index}
             />
           ))}
-          {loading && <TypingIndicator/> }
+          {loading && <TypingIndicator />}
           <div ref={messagesEndRef}></div>
         </div>
 
-        <div className="flex items-center p-4 ">
+        <div className="flex items-center p-4  sm:border-[#33353F] sm:border rounded-md">
           <input
             type="text"
             className="flex-1 p-2 text-white bg-[#1F2937] rounded-md outline-none"
