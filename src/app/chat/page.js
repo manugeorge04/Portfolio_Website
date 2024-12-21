@@ -1,10 +1,10 @@
 "use client"
 
+import axios from "axios";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FiSend } from "react-icons/fi";
 import ChatBubble from "../components/ChatBubble";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import TypingIndicator from "../components/TypingIndicator";
 import "../styles/tailwind.css";
@@ -49,24 +49,23 @@ export default function Chat() {
       setLoading(true);
       let answer = "";
       try {
-        const response = await fetch(
+        const response = await axios.post(
           "http://54.193.151.141:80/chat/send/",
+          { question: query },
           {
-            method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-              question: query,
-            }),
+            withCredentials: true,
+            timeout: 10000,
           }
         );
-
-        if (!response.ok) {
-          answer = "Hmm... something unexpected happened. Maybe I need a little coffee break? ☕";
+        if (response.statusText != 'OK') {
+          answer =
+            "Hmm... something unexpected happened. Maybe I need a little coffee break? ☕";
         } else {
-          const data = await response.json();
-          answer = data.response
+          const data = response.data;
+          answer = data.response;
         }
       } catch (error) {
         console.error(
@@ -94,7 +93,7 @@ export default function Chat() {
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
       <Navbar />
-      <div className="container mt-24 mx-auto  rounded-[6px] flex flex-col h-[calc(100dvh-235px)] mb-4">
+      <div className="container mt-24 mx-auto  rounded-[6px] flex flex-col h-[calc(100dvh-120px)] mb-4">
         <div className="flex flex-row items-center px-4 py-1 max-h-[100px] rounded-[8px] sm:border-[#33353F] sm:border rounded-md py-8 px-16 ">
           <div className="bg-green-300 rounded-full">
             <Image
@@ -142,7 +141,6 @@ export default function Chat() {
           </button>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }
