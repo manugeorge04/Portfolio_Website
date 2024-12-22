@@ -92,7 +92,7 @@ export default function Chat() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212]">
+    <main className="flex flex-col bg-[#121212]">
       <Navbar />
       <div className="container mt-24 mx-auto  rounded-[6px] flex flex-col h-[calc(100dvh-120px)] mb-4">
         <div className="flex flex-row items-center px-4 py-1 max-h-[100px] rounded-[8px] sm:border-[#33353F] sm:border rounded-md py-8 px-16 ">
@@ -136,7 +136,7 @@ export default function Chat() {
           />
           <button
             onClick={sendMessage}
-            className="ml-10 mr-10 text-primary-500 hover:text-primary-600"
+            className="ml-4 mr-4 md:ml-10 md:mr-10 text-primary-500 hover:text-primary-600"
           >
             <FiSend size={20} />
           </button>
