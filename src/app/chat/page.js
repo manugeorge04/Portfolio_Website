@@ -51,7 +51,7 @@ export default function Chat() {
       let answer = "";
       try {
         const response = await axios.post(
-          `http://${BACKEND}/chat/send/`,
+          `${BACKEND}/chat/send/`,
           { question: query },
           {
             headers: {
