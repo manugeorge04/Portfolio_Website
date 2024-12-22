@@ -8,6 +8,7 @@ import ChatBubble from "../components/ChatBubble";
 import Navbar from "../components/Navbar";
 import TypingIndicator from "../components/TypingIndicator";
 import "../styles/tailwind.css";
+import { BACKEND } from "../utils/appConstants";
 
 export default function Chat() {
   const [messages, setMessages] = useState( [
@@ -50,7 +51,7 @@ export default function Chat() {
       let answer = "";
       try {
         const response = await axios.post(
-          "http://54.193.151.141:80/chat/send/",
+          `http://${BACKEND}/chat/send/`,
           { question: query },
           {
             headers: {
