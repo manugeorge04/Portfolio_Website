@@ -1,63 +1,76 @@
 "use client";
-import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
-import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
+    title: "NextJS Portfolio Website",
+    description:
+      "A sleek platform showcasing my skills and achievements.Built with NextJS and styled using TailwindCSS",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl:
+      "https://github.com/manugeorge04/Portfolio_Website",
+    previewUrl: "https://manuvimal.vercel.app/",
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
+    title: "Personal AI Assistant",
+    description:
+      "A RAG based AI assistant answering questions about my skills, hobbies, and personality, with live chat. Built using Python(DJANGO), LangChain, and ChromaDB.",
     image: "/images/projects/2.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    tag: ["All", "ML/AI"],
+    gitUrl:
+      "https://github.com/manugeorge04/PersonaAI",
+    previewUrl:
+      "https://manuvimal.vercel.app/chat",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
+    title: "SpringBoot E-commerce Application",
+    description:
+      "Scalable platform for seamless online shopping to higlight working of microservices. Built using SpringBoot, Kafka, and MongoDB.",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "",
+    previewUrl: "",
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
+    title:
+      "Computer Vision: Object Retrieval Swarm",
+    description:
+      "Showcased efficient indoor object retrieval using swarm robotics with computer vision and WebSocket-based real-time communication.",
+    image: "/images/projects/4.jpeg",
+    tag: ["All", "ML/AI"],
+    gitUrl:
+      "https://github.com/manugeorge04/Swarm-Robotics",
+    previewUrl:
+      "https://ieeexplore.ieee.org/document/9225693",
   },
   {
     id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
+    title: "QShala: Gamified Learning Platform",
+    description:
+      "Developed a quiz-based platform for Indian kids, similar to Kahoot, to make learning fun and interactive. As the founding full-stack developer, I architected the web app using ReactJS, Django, and MongoDB",
     image: "/images/projects/5.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "",
+    previewUrl: "https://quiz.qshala.com/",
   },
   {
     id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
+    title: "MS Teams Bot - Time Converter",
+    description:
+      "A Bot Framework-based bot that converts time from IST to any selected timezone within Microsoft Teams. Built using Node.js, ngrok for tunneling, and Azure Bot Framework for deployment and interaction.",
     image: "/images/projects/6.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl:
+      "https://github.com/manugeorge04/MSTeamsBot-TimeConverter",
+    previewUrl: "",
   },
 ];
 
@@ -97,8 +110,8 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="ML/AI"
+          isSelected={tag === "ML/AI"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
