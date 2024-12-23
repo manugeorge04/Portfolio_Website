@@ -9,6 +9,8 @@ import Navbar from "../components/Navbar";
 import TypingIndicator from "../components/TypingIndicator";
 import "../styles/tailwind.css";
 import { BACKEND } from "../utils/appConstants";
+import { logChat } from "./util";
+const { v4: uuidv4 } = require('uuid');
 
 export default function Chat() {
   const [messages, setMessages] = useState( [
@@ -19,6 +21,10 @@ export default function Chat() {
   ]);
 
   const [query, setQuery] = useState("");
+
+  const [UUID, setUUID] = useState(uuidv4());
+
+  const [messageCounter, setMessageCounter] = useState(1)
 
   const [loading, setLoading] = useState(false);
 
@@ -81,6 +87,8 @@ export default function Chat() {
           ...prevMessages,
           { author: "ai", content: answer },
         ]);
+        logChat(UUID, query, answer, messageCounter);
+        setMessageCounter((prevCount) => prevCount + 1);
       }
     }
   };
