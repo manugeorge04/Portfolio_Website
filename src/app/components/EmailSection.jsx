@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
+import GoogleScholarIcon from "../../../public/googlescholar-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 
 const EmailSection = () => {
@@ -74,6 +75,15 @@ const EmailSection = () => {
             <Image
               src={LinkedinIcon}
               alt="Linkedin Icon"
+            />
+          </Link>
+          <Link
+            href="https://scholar.google.com/citations?hl=en&user=BF3q8eYAAAAJ"
+            target="_blank"
+          >
+            <Image
+              src={GoogleScholarIcon}
+              alt="GoogleScholar Icon"
             />
           </Link>
         </div>
