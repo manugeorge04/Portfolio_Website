@@ -13,8 +13,29 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --scrollbar-track: rgb(40, 40, 40);
+    --scrollbar-thumb: rgb(80, 80, 80);
+    --scrollbar-thumb-hover: rgb(120, 120, 120);
   }
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
 
 body {
   color: rgb(var(--foreground-rgb));
