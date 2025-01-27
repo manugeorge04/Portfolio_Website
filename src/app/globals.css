@@ -46,3 +46,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#about, #projects, #contact {
+  scroll-margin-top: 100px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
