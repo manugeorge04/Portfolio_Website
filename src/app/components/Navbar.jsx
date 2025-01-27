@@ -8,15 +8,15 @@ import NavLink from "./NavLink";
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/#projects",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
   },
 ];
 
